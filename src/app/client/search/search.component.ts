@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Dish } from '../../class/dish';
+import { Dish } from '../../class/Dish';
+import {FormsModule} from '@angular/forms';
 
 @Component({
   selector: 'app-search',
@@ -15,31 +16,20 @@ export class SearchComponent implements OnInit {
   ngOnInit() {
       // temp hardcoded data for developement purpose
       this.dishes = [
-          {name: 'Fried Rice', imageUrl: 'assets/img/fried-rice.jpg', price: 4},
-          {name: 'Fried Rice', imageUrl: 'assets/img/fried-rice.jpg', price: 4},
-          {name: 'Fried Rice', imageUrl: 'assets/img/fried-rice.jpg', price: 4},
-          {name: 'Fried Rice', imageUrl: 'assets/img/fried-rice.jpg', price: 4},
-          {name: 'Fried Rice', imageUrl: 'assets/img/fried-rice.jpg', price: 4},
-          {name: 'Fried Rice', imageUrl: 'assets/img/fried-rice.jpg', price: 4},
-          {name: 'Fried Rice', imageUrl: 'assets/img/fried-rice.jpg', price: 4},
-          {name: 'Fried Rice', imageUrl: 'assets/img/fried-rice.jpg', price: 4},
-          {name: 'Fried Rice', imageUrl: 'assets/img/fried-rice.jpg', price: 4},
-          {name: 'Fried Rice', imageUrl: 'assets/img/fried-rice.jpg', price: 4},
-          {name: 'Fried Rice', imageUrl: 'assets/img/fried-rice.jpg', price: 4},
-          {name: 'Fried Rice', imageUrl: 'assets/img/fried-rice.jpg', price: 4},
-          {name: 'Fried Rice', imageUrl: 'assets/img/fried-rice.jpg', price: 4},
-          {name: 'Fried Rice', imageUrl: 'assets/img/fried-rice.jpg', price: 4},
-          {name: 'Fried Rice', imageUrl: 'assets/img/fried-rice.jpg', price: 4},
-          {name: 'Fried Rice', imageUrl: 'assets/img/fried-rice.jpg', price: 4},
-          {name: 'Fried Rice', imageUrl: 'assets/img/fried-rice.jpg', price: 4},
-          {name: 'Fried Rice', imageUrl: 'assets/img/fried-rice.jpg', price: 4},
-          {name: 'Fried Rice', imageUrl: 'assets/img/fried-rice.jpg', price: 4},
-          {name: 'Fried Rice', imageUrl: 'assets/img/fried-rice.jpg', price: 4},
-          {name: 'Fried Rice', imageUrl: 'assets/img/fried-rice.jpg', price: 4},
-          {name: 'Fried Rice', imageUrl: 'assets/img/fried-rice.jpg', price: 4},
-          {name: 'Fried Rice', imageUrl: 'assets/img/fried-rice.jpg', price: 4},
-          {name: 'Fried Rice', imageUrl: 'assets/img/fried-rice.jpg', price: 4},
+          new Dish(1,'Fried Rice', 'assets/img/fried-rice.jpg', {large: 10, medium: 7, small: 5}),
+          new Dish(2,'Fried Rice', 'assets/img/fried-rice.jpg', {large: 10, medium: 7, small: 5}),
+          new Dish(3,'Fried Rice', 'assets/img/fried-rice.jpg', {large: 10, medium: 7, small: 5}),
+          new Dish(4,'Fried Rice', 'assets/img/fried-rice.jpg', {large: 10, medium: 7, small: 5}),
+          new Dish(5,'Fried Rice', 'assets/img/fried-rice.jpg', {large: 10, medium: 7, small: 5}),
+          new Dish(6,'Fried Rice', 'assets/img/fried-rice.jpg', {large: 10, medium: 7, small: 5}),
+          new Dish(7,'Fried Rice', 'assets/img/fried-rice.jpg', {large: 10, medium: 7, small: 5}),
+          new Dish(8,'Fried Rice', 'assets/img/fried-rice.jpg', {large: 10, medium: 7, small: 5}),
+          new Dish(9,'Fried Rice', 'assets/img/fried-rice.jpg', {large: 10, medium: 7, small: 5}),
+          new Dish(10,'Fried Rice', 'assets/img/fried-rice.jpg', {large: 10, medium: 7, small: 5}),
+          new Dish(11,'Fried Rice', 'assets/img/fried-rice.jpg', {large: 10, medium: 7, small: 5}),
+          new Dish(12,'Fried Rice', 'assets/img/fried-rice.jpg', {large: 10, medium: 7, small: 5})
       ];
   }
+
 
 }

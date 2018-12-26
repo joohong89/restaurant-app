@@ -1,19 +1,23 @@
 
-
     <div class="row" >
-        <div *ngFor="let dish of dishes" class="col-lg-4 text-center p-5">
+        <div class="col-lg-12">
+          <h1>Menu</h1>
+        </div>
+        <div *ngFor="let dish of dishes; let index = index;" class="col-lg-4 text-center pt-5 pb-5">
             <img src="{{dish.imageUrl}}" alt="{{dish.name}}">
             <div class="mt-3">
-                <span>
+                <h5>
                     {{dish.name}}
-                </span>
+                </h5>
                 <br>
-                 <span>
-                    {{dish.price | currency}}
-                </span>
-            </div>  
-            
-
+              <select id="">
+                <option *ngFor="let item of dish.price | keyvalue" value="item">{{item.key}} - {{item.value}}</option>
+              </select>
+            </div>
+            <div class="mt-2">
+              <input type="number" [(ngModel)]="dishes[index].quantity" min="0">
+            </div>
+            <button class="btn btn-primary mt-3">Add to Cart</button>
         </div>
     </div>
 
