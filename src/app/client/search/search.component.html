@@ -1,0 +1,19 @@
+
+
+    <div class="row" >
+        <div *ngFor="let dish of dishes" class="col-lg-4 text-center p-5">
+            <img src="{{dish.imageUrl}}" alt="{{dish.name}}">
+            <div class="mt-3">
+                <span>
+                    {{dish.name}}
+                </span>
+                <br>
+                 <span>
+                    {{dish.price | currency}}
+                </span>
+            </div>  
+            
+
+        </div>
+    </div>
+
