@@ -30,9 +30,9 @@
         <tr *ngIf="orders.length < 1">
           <td colspan="6" class="text-center">No Items Added to Cart</td>
         </tr>
-        <tr *ngIf="orders.length > 0" class="mt-3 font-weight-bold">
+        <tr *ngIf="orders.length > 0" class="summary-row font-weight-bold">
           <td colspan="4" class='text-right'>Total:&nbsp;</td>
-          <td colspan="1">{{totalAmount | currency}}</td>
+          <td colspan="2">{{totalAmount | currency}}</td>
         </tr>
       </tbody>
     </table>
