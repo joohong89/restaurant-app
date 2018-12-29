@@ -8,7 +8,11 @@ export class Dish {
 
   public imageUrl: string;
 
-  public price: DishSizePrice;
+  public large: number;
+
+  public medium: number
+
+  public small: number
 
   public quantity: number;
 
@@ -19,7 +23,9 @@ export class Dish {
     constructor(id: number,
                 name: string,
                 imageUrl: string,
-                price: DishSizePrice,
+                large: number,
+                medium: number,
+                small: number,
                 quantity: number = 0,
                 selectedSize?: string,
                 selectedPrice?: number) {
@@ -27,7 +33,9 @@ export class Dish {
       this.id = id;
       this.name = name;
       this.imageUrl = imageUrl;
-      this.price = price;
+      this.large = large;
+      this.medium = medium;
+      this.small = small;
       this.quantity = quantity
       this.selectedSize = selectedSize;
       this.selectedPrice = selectedPrice;

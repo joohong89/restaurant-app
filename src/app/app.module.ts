@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { UiModule } from './ui/ui.module';
 import { ClientModule } from './client/client.module';
 import {FormsModule} from '@angular/forms';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import {FormsModule} from '@angular/forms';
     BrowserModule,
     AppRoutingModule,
     UiModule,
-    ClientModule
+    ClientModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
