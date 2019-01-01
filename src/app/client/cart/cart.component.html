@@ -21,7 +21,7 @@
             <img class="preview-img" src="{{item.imageUrl}}" alt="">
             <span class="ml-5">{{item.name}}</span>
           </td>
-          <td>{{item.quantity}}</td>
+          <td><input type="number" [(ngModel)]="orders[index].quantity"/></td>
           <td>{{item.selectedSize}}</td>
           <td>{{item.selectedPrice | currency}}</td>
           <td>{{item.selectedPrice * item.quantity | currency}}</td>
@@ -36,5 +36,32 @@
         </tr>
       </tbody>
     </table>
+  </div>
+
+  <!-- Button trigger modal -->
+  <div class="col-12 text-right">
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#cartConfirmation" [disabled]="!orders" >
+      Submit
+    </button>
+  </div>
+
+
+</div>
+
+<!-- Modal Dialog -->
+<div class="modal fade" id="cartConfirmation" tabindex="-1" role="dialog" aria-labelledby="cartConfirmation" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Confirm</h5>
+      </div>
+      <div class="modal-body">
+        <p>Do you want to confirm your order?</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary"  data-dismiss="modal" (click)="submitOrders()" >Submit</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
   </div>
 </div>

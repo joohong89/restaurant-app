@@ -1,8 +1,6 @@
-import {DishSizePrice} from './DishSizePrice';
-
 export class Dish {
 
-  public id: number;
+  public _id: number;
 
   public name: string;
 
@@ -20,6 +18,8 @@ export class Dish {
 
   public selectedPrice: number;
 
+  public status: string;
+
     constructor(id: number,
                 name: string,
                 imageUrl: string,
@@ -30,7 +30,7 @@ export class Dish {
                 selectedSize?: string,
                 selectedPrice?: number) {
 
-      this.id = id;
+      this._id = id;
       this.name = name;
       this.imageUrl = imageUrl;
       this.large = large;

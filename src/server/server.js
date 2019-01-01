@@ -6,6 +6,7 @@ let express  = require('express'),
       configDB = require('./config/DB');
 
 const dishRoute = require('./route/dish.route');
+const orderRoute = require('./route/order.route');
 
 //define port number
 var port = process.env.PORT || 4000;
@@ -28,7 +29,9 @@ app.use(bodyParser.json());
 app.use(cors());
 
 //Restful api
+app.use('/order', orderRoute);
 app.use('/dish', dishRoute);
+
 
 var server = app.listen(port, function(){
   console.log("Listening on port : " + port);

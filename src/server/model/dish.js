@@ -3,7 +3,6 @@ const Schema = mongoose.Schema;
 
 let Dish = new Schema(
   {
-    _id: String,
     name: String,
     imageUrl: String,
     large: Number,

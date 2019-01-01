@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Dish} from "../../class/Dish";
-import index from "@angular/cli/lib/cli";
+import {Dish} from '../../class/Dish';
+import index from '@angular/cli/lib/cli';
 import {CartService} from '../../service/cart.service';
 
 @Component({
@@ -14,7 +14,7 @@ export class CartComponent implements OnInit {
 
   orders: Dish[] = [];
 
-  totalAmount: number = 0;
+  totalAmount = 0;
 
   ngOnInit() {
     this.orders = this.cartService.getCartOrders();
@@ -24,17 +24,34 @@ export class CartComponent implements OnInit {
     calculateTotal(): void {
       let total = 0;
 
-      this.orders.forEach((item,index) => {
+      this.orders.forEach((item, index) => {
         total += (item.quantity * item.selectedPrice);
       });
 
       this.totalAmount =  total;
     }
 
-  removeItemFromOrder(index: number): void{
+  removeItemFromOrder(index: number): void {
     this.orders.splice(index, 1);
     this.calculateTotal();
     this.cartService.removeCartOrder();
+  }
+
+  submitOrders(): void {
+
+    const reqbody = [];
+
+    this.orders.forEach(value => {
+      reqbody.push({
+        dishId: value._id,
+        name: value.name,
+        quantity: value.quantity,
+        size: value.selectedSize,
+        price: value.selectedPrice,
+      });
+    });
+
+    this.cartService.submitOrders(reqbody);
   }
 
 }
