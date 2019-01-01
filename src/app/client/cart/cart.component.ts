@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Dish} from '../../class/Dish';
 import index from '@angular/cli/lib/cli';
 import {CartService} from '../../service/cart.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-cart',
@@ -10,7 +11,8 @@ import {CartService} from '../../service/cart.service';
 })
 export class CartComponent implements OnInit {
 
-  constructor(private cartService: CartService) { }
+  constructor(private cartService: CartService,
+              private router: Router) { }
 
   orders: Dish[] = [];
 
@@ -38,6 +40,9 @@ export class CartComponent implements OnInit {
   }
 
   submitOrders(): void {
+    if(this.orders.length < 1) {
+      return;
+    }
 
     const reqbody = [];
 
@@ -52,6 +57,7 @@ export class CartComponent implements OnInit {
     });
 
     this.cartService.submitOrders(reqbody);
+    this.router.navigate(['/client/view']);
   }
 
 }
