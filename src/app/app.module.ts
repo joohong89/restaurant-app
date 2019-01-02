@@ -7,6 +7,7 @@ import { UiModule } from './ui/ui.module';
 import { ClientModule } from './client/client.module';
 import {FormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import {LoginModule} from "./login/login.module";
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import {HttpClientModule} from '@angular/common/http';
     AppRoutingModule,
     UiModule,
     ClientModule,
+    LoginModule,
     HttpClientModule
   ],
   providers: [],
