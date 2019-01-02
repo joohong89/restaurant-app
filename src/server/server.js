@@ -3,10 +3,12 @@ let express  = require('express'),
     bodyParser = require('body-parser'),
     cors = require('cors'),
     mongoose = require('mongoose'),
-      configDB = require('./config/DB');
+    configDB = require('./config/server'),
+    passport = require('passport');
 
 const dishRoute = require('./route/dish.route');
 const orderRoute = require('./route/order.route');
+const loginRoute = require('./route/login.route');
 
 //define port number
 var port = process.env.PORT || 4000;
@@ -28,9 +30,16 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors());
 
+//passport middleware
+app.use(passport.initialize());
+app.use(passport.session());
+
+//require('./config/passport')(passport);
+
 //Restful api
 app.use('/order', orderRoute);
 app.use('/dish', dishRoute);
+app.use('/login', loginRoute);
 
 
 var server = app.listen(port, function(){
