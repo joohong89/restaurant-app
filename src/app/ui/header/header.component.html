@@ -1,18 +1,18 @@
 <nav class="navbar navbar-dark bg-dark mb-5">
   <a class="navbar-brand" href="/">JH</a>
-  <div class="navbar-expand mr-auto">
+  <div class="navbar-expand mr-auto pr-5 pl-5">
     <div class="navbar-nav">
-      <a class="nav-item nav-link active" href="#">Home</a>
+      <a class="nav-item nav-link" href="#">Home</a>
       <a class="nav-item nav-link" routerLink='/client/view' >Menu</a>
       <a class="nav-item nav-link" routerLink="/client/orders" href="#">Orders</a>
     </div>
   </div>
-  <div class="navbar-expand ml-auto navbar-nav">
-    <span style="color: white">{{total}}</span>
+  <div class="navbar-expand ml-auto navbar-nav cart">
     <div class="navbar-nav">
         <a class="nav-item nav-link" routerLink="/client/cart">
           <i class="fa fa-shopping-cart"></i>
         </a>
     </div>
+    <span *ngIf="total > 1">{{total}}</span>
   </div>
 </nav>
