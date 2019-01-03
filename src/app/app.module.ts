@@ -6,8 +6,9 @@ import { AppComponent } from './app.component';
 import { UiModule } from './ui/ui.module';
 import { ClientModule } from './client/client.module';
 import {FormsModule} from '@angular/forms';
-import {HttpClientModule} from '@angular/common/http';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import {LoginModule} from "./login/login.module";
+import {LoginInterceptor} from "./interceptor/LoginInterceptor";
 
 @NgModule({
   declarations: [
@@ -22,7 +23,12 @@ import {LoginModule} from "./login/login.module";
     LoginModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: LoginInterceptor,
+    multi: true
+  }
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

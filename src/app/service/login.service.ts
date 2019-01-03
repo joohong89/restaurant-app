@@ -18,6 +18,10 @@ export class LoginService {
     );
   }
 
+  getAccessToken(): string {
+    return localStorage.getItem('jwt');
+  }
+
   /**
    * Handle Http operation that failed.
    * Let the app continue.
