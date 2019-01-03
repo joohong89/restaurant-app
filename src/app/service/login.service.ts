@@ -10,15 +10,22 @@ import {Dish} from '../class/Dish';
 })
 export class LoginService {
 
+  isDevelopment: boolean = true;
+
   constructor(private http: HttpClient) { }
 
   login(logInInfo): Observable<any> {
     return this.http.post<any>(environment.server + 'login/authenticate', logInInfo).pipe(
-      catchError(this.handleError<Dish[]>('getAllDish()', []))
+      catchError(this.handleError<Dish[]>('login()', []))
     );
   }
 
   getAccessToken(): string {
+    //TODO: Remove when prod. Added for development only
+    if(this.isDevelopment){
+        return 'true';
+    }
+
     return localStorage.getItem('jwt');
   }
 
