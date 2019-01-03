@@ -6,7 +6,7 @@ let Order = require('../model/Order');
 
 const STATUS_PROCESSING = 'Processing';
 
-orderRouter.route('/orderSubmit').post((req, res) => {
+orderRouter.route('/orderSubmit').post(authenticationService.authenticate() ,(req, res) => {
 
   let body = req.body;
   let total = 0;
@@ -32,13 +32,10 @@ orderRouter.route('/orderSubmit').post((req, res) => {
     console.log(err);
   });
 
-  //TODO: if body is null error handling
-
-
 
 });
 
-orderRouter.route('/getOrder').get((req,res) => {
+orderRouter.route('/getOrder').get(authenticationService.authenticate() ,(req,res) => {
 
   Order.find({status: STATUS_PROCESSING}).then(item => {
     res.status(200).json(item);

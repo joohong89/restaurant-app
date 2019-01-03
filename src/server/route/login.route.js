@@ -1,12 +1,18 @@
 const express = require('express');
 const app = express();
 const route = express.Router();
+const jwt = require('jsonwebtoken');
+const config = require('../config/server');
+const authenticationService = require('../common/authentication');
 
 let User = require('../model/user');
 
 route.post('/authenticate', (req, res, next) => {
   const username = req.body.username;
   const password = req.body.password;
+
+  console.log(username);
+  console.log(password);
 
   User.getUserByUsername(username, (err, user) => {
     if(err){
@@ -24,7 +30,7 @@ route.post('/authenticate', (req, res, next) => {
 
       if(result){
         //expire in 1 week
-        const token = jwt.sign(user, config.secret, {expiresIn: 604800});
+        const token = jwt.sign(user.username, config.secret);
 
         res.json({
           success: true,
