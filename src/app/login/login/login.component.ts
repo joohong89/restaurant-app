@@ -24,7 +24,15 @@ export class LoginComponent implements OnInit {
       password: this.password
     }).subscribe(res => {
       this.logInService.setAccessToken(res.token);
+      this.logInService.setUsername(res.user.username);
+      // console.log('loggin in : ' + res);
+      // //this.logInService.setAccessResource(res.user.resources);
+      // this.logInService.getMenuItem();
+      // window.location.href = '/client/view';
       this.router.navigate(['client/view']);
+    }, err => {
+      console.log(err);
     });
   }
+
 }

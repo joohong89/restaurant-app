@@ -3,8 +3,10 @@ const app = express();
 const orderRouter = express.Router();
 
 let Order = require('../model/Order');
-
+const authenticationService = require('../common/authentication');
 const STATUS_PROCESSING = 'Processing';
+
+
 
 orderRouter.route('/orderSubmit').post(authenticationService.authenticate() ,(req, res) => {
 

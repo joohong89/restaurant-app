@@ -7,12 +7,13 @@ import { UiModule } from './ui/ui.module';
 import { ClientModule } from './client/client.module';
 import {FormsModule} from '@angular/forms';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
-import {LoginModule} from "./login/login.module";
-import {LoginInterceptor} from "./interceptor/LoginInterceptor";
+import {LoginModule} from './login/login.module';
+import {LoginInterceptor} from './interceptor/LoginInterceptor';
 
 @NgModule({
   declarations: [
     AppComponent
+
   ],
   imports: [
     FormsModule,

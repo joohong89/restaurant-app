@@ -3,13 +3,19 @@
   <div class="navbar-expand mr-auto pr-5 pl-5">
     <div class="navbar-nav">
       <a class="nav-item nav-link" routerLink="/login">Home</a>
-      <a class="nav-item nav-link" routerLink='/client/view' >Menu</a>
+
+      <!-- Client (Each Table can see own)  -->
+      <a class="nav-item nav-link ml-5" routerLink='/client/view' >Menu</a>
       <a class="nav-item nav-link" routerLink="/client/orders" href="#">Orders</a>
+
+      <!-- Admin Item -->
+      <a class="nav-item nav-link ml-5" routerLink="/client/orders" href="#">Orders</a>
+
     </div>
   </div>
-  <div class="navbar-expand navbar-nav right-nav mr-5">
+  <div class="navbar-expand navbar-nav right-nav mr-5" appResource="cartPage">
     <div class="navbar-nav">
-        <a class="nav-item nav-link" routerLink="/client/cart">
+        <a class="nav-item nav-link"  routerLink="/client/cart">
           <i class="fa fa-shopping-cart"></i>
         </a>
     </div>

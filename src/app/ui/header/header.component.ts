@@ -13,10 +13,13 @@ export class HeaderComponent implements OnInit {
 
   constructor(private cartService: CartService, private loginService: LoginService) { }
 
+  resource = [];
+
   total = 0;
 
   ngOnInit() {
       this._subscription = this.cartService.orderChange.subscribe(total => this.total = total);
+      //this.getMenuItem();
   }
 
   ngOnDestroy() {
@@ -26,4 +29,13 @@ export class HeaderComponent implements OnInit {
   logout(): void {
     this.loginService.logout();
   }
+
+
+  // getMenuItem(): void {
+  //   console.log('sdfasdfa');
+  //   this.loginService.menuItem.subscribe(res => {
+  //     console.log('Resource : ' + res);
+  //     this.resource = res;
+  //   });
+  // }
 }

@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const bcrypt = require('bcryptjs');
+const Role = require('./role');
 
 let UserSchema = new Schema(
   {
@@ -16,7 +17,8 @@ let UserSchema = new Schema(
     password: {
       type: String,
       required: true
-    }
+    },
+    roles: [],
   },{collection: 'User'}
 );
 
@@ -29,8 +31,6 @@ module.exports.getUserById = function (id, callback) {
 module.exports.getUserByUsername = function (user, callback) {
   const query = {username: user};
 
-  console.log(user);
-  console.log(query);
   User.findOne(query, callback);
 };
 

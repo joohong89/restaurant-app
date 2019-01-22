@@ -15,7 +15,7 @@ export class LoginInterceptor implements HttpInterceptor{
 
     const jwt = this.loginService.getAccessToken();
     console.log(jwt);
-    if (!jwt) {
+    if (!jwt || jwt === 'undefined') {
         this.router.navigate(['']);
         return next.handle(req);
     }
